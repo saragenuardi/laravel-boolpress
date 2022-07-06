@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -26,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -37,8 +38,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate($this->getValidationRules());
+
+        $data = $request->all();
+        $post = new Post();
+        $post->fill($data);
+        
+
+        $post->slug = $this->generatePostSlugFromTitle($post->title);
+
+        $post->save();
+        return redirect()->route('admin.posts.show', ['post' => $post->id ] );
+    } 
 
     /**
      * Display the specified resource.
@@ -84,5 +95,26 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function generatePostSlugFromTitle($title) {
+        $base_slug = Str::slug($title, '-');
+        $slug = $base_slug;
+        $count = 1;
+        $post_found = Post::where('slug', '=', $slug)->first();
+        while($post_found) {
+            $slug = $base_slug . '-' . $count;
+            $post_found = Post::where('slug', '=', $slug)->first();
+            $count++;
+        }
+
+        return $slug;
+    }
+
+    private function getValidationRules() {
+        return [
+            'title' => 'required|max:255',
+            'content' => 'required|max:30000'
+        ];
     }
 }
