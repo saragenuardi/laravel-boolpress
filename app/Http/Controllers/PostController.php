@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Category;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
@@ -46,7 +48,15 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+
+        // $post = Post::findOrFail($id);
+
+
+        $category = $post->category;
+        $categoriesPosts = $category->posts;
+         //dd('$categoriesPosts');
+
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
