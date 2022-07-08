@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserInfoTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,13 @@ class CreateUserInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_info', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('phone', 20);
-            $table->string('address, 255');
-            $table->unsignedBigInteger('user_id');
+            $table->string('name, 30');
+            $table->string('slug', 36);
             $table->timestamps();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
-
         });
     }
-
-   
 
     /**
      * Reverse the migrations.
@@ -36,6 +28,6 @@ class CreateUserInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_info');
+        Schema::dropIfExists('categories');
     }
 }
