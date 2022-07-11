@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Post;
 use Illuminate\Http\Request;
@@ -22,11 +22,13 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *@return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        dd($categories);
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
