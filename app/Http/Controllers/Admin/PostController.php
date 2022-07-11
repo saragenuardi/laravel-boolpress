@@ -75,6 +75,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
+        //dd($categories);
         return view('admin.posts.edit', compact('post', 'categories'));
     }
 
@@ -91,10 +92,13 @@ class PostController extends Controller
 
         $data = $request->all();
 
+
         $post = Post::findOrFail($id);
         $post->fill($data);
         $post->slug = $this->generatePostSlugFromTitle($post->title);
         $post->save();
+
+        // dd($post);
 
         return redirect()->route('admin.posts.show',['post' => $post->id] );
 

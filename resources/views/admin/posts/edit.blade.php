@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
             <label for="content">Contenuto</label>
-            <textarea type="text" class="form-control" id="content" name="content" rows="10" {{ old('content') ? old('content') : $post->content}}></textarea>
+            <textarea type="text" class="form-control" id="content" name="content" rows="10">{{ old('content') ? old('content') : $post->content}}</textarea>
           </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
