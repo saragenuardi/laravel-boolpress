@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -29,7 +30,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -45,13 +47,15 @@ class PostController extends Controller
         $data = $request->all();
         $post = new Post();
         $post->fill($data);
-        
+
 
         $post->slug = $this->generatePostSlugFromTitle($post->title);
 
+
+        $post->tags()->sync($data['tags']);
         $post->save();
-        return redirect()->route('admin.posts.show', ['post' => $post->id ] );
-    } 
+        return redirect()->route('admin.posts.show', ['post' => $post->id]);
+    }
 
     /**
      * Display the specified resource.
@@ -100,8 +104,7 @@ class PostController extends Controller
 
         // dd($post);
 
-        return redirect()->route('admin.posts.show',['post' => $post->id] );
-
+        return redirect()->route('admin.posts.show', ['post' => $post->id]);
     }
 
     /**
@@ -115,12 +118,13 @@ class PostController extends Controller
         //
     }
 
-    private function generatePostSlugFromTitle($title) {
+    private function generatePostSlugFromTitle($title)
+    {
         $base_slug = Str::slug($title, '-');
         $slug = $base_slug;
         $count = 1;
         $post_found = Post::where('slug', '=', $slug)->first();
-        while($post_found) {
+        while ($post_found) {
             $slug = $base_slug . '-' . $count;
             $post_found = Post::where('slug', '=', $slug)->first();
             $count++;
@@ -129,11 +133,13 @@ class PostController extends Controller
         return $slug;
     }
 
-    private function getValidationRules() {
+    private function getValidationRules()
+    {
         return [
             'title' => 'required|max:255',
             'content' => 'required|max:30000',
-            'category_id' => 'nullable|exists:categories,id'
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'nullable!exists:tags,id'
         ];
     }
 }
