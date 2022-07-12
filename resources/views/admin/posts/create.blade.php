@@ -36,7 +36,7 @@
                     <div class="form-check">
 
 
-                        <input class="form-check-input" type="checkbox" value="1" id="tag-{{ $tag->id}}">
+                        <input class="form-check-input" type="checkbox" value="{{ $tag->id}}" name="tags[]" id="tag-{{ $tag->id}}">
                         <label class="form-check-label" for="tag{{$tag->id}}" {{ in_array( $tag->id, old('tags', [])) ? 'checked' : ''}}>
                             {{ $tag->name}}
                         </label>

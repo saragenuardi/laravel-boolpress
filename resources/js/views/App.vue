@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="container text-center mt-4">
     <h2>Questa è la mia App di Vue</h2>
-    <WorkInProgress />
+    <Posts />
   </div>
 </template>
 
 <script>
-import WorkInProgress from '../components/WorkInProgress.vue';
+import Posts from "../components/Posts.vue"
 export default {
     name: 'App',
     components: {
-      WorkInProgress,
+      Posts,
     },
 };
 </script>

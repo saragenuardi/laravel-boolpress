@@ -43,17 +43,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->getValidationRules());
-
+        
         $data = $request->all();
         $post = new Post();
         $post->fill($data);
-
-
+        
+        
         $post->slug = $this->generatePostSlugFromTitle($post->title);
-
+        
+        $post->save();
+        
 
         $post->tags()->sync($data['tags']);
-        $post->save();
         return redirect()->route('admin.posts.show', ['post' => $post->id]);
     }
 
@@ -139,7 +140,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'content' => 'required|max:30000',
             'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'nullable!exists:tags,id'
+            'tags' => 'nullable|exists:tags,id'
         ];
     }
 }
