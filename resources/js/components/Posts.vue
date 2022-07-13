@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     getPosts() {
-      axios.get("http://127.0.0.1:8000/api/posts").then((resp) => {
+      axios.get("http://127.0.0.1:8000/api/posts").then(resp => {
         this.posts = resp.data.results;
       });
     },

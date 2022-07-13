@@ -1,5 +1,6 @@
 <template>
   <div class="container text-center mt-4">
+    <myHeader />
     <router-view></router-view>
     <!-- <h2>Questa è la mia App di Vue</h2>
     <Posts /> -->
@@ -7,9 +8,13 @@
 </template>
 
 <script>
-// import Posts from "../components/Posts.vue"
+ import myHeader from "../components/myHeader.vue";
 export default {
-    name: 'App',
+  name: "App",
+  components: {
+     myHeader 
+  }
+    
     
 };
 </script>
