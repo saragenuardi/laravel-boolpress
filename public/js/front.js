@@ -1899,44 +1899,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Posts.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Posts.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Posts",
-  data: function data() {
-    return {
-      posts: []
-    };
-  },
-  created: function created() {
-    this.getPosts();
-  },
-  methods: {
-    getPosts: function getPosts() {
-      var _this = this;
-
-      axios.get("http://127.0.0.1:8000/api/posts").then(function (resp) {
-        _this.posts = resp.data.results;
-      });
-    } // troncateText(text, maxCharNumber) {
-    //     if (text.lenght > maxCharNumber) {
-    //         return text.substr(0, maxCharNumber) + '...';
-    //     }
-    //     return text;
-    // }
-
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=script&lang=js& ***!
@@ -1946,55 +1908,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Posts_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Posts.vue */ "./resources/js/components/Posts.vue");
-
+// import Posts from "../components/Posts.vue"
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'App',
-  components: {
-    Posts: _components_Posts_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  name: 'App'
 });
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Posts.vue?vue&type=template&id=4ac4d2f8&":
-/*!**************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Posts.vue?vue&type=template&id=4ac4d2f8& ***!
-  \**************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "container"
-  }, [_c("h2", [_vm._v("Lista di post")]), _vm._v(" "), _c("div", {
-    staticClass: "row row-cols-3"
-  }, _vm._l(_vm.posts, function (post) {
-    return _c("div", {
-      key: post.id,
-      staticClass: "col"
-    }, [_c("div", {
-      staticClass: "card mb-3"
-    }, [_c("div", {
-      staticClass: "card-body"
-    }, [_c("h5", {
-      staticClass: "card-title"
-    }, [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("\r\n              " + _vm._s(post.content.substr(0, 50)) + "\r\n            ")])])])]);
-  }), 0)]);
-};
-
-var staticRenderFns = [];
-render._withStripped = true;
-
 
 /***/ }),
 
@@ -2015,7 +1932,7 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container text-center mt-4"
-  }, [_c("h2", [_vm._v("Questa è la mia App di Vue")]), _vm._v(" "), _c("Posts")], 1);
+  }, [_c("router-view")], 1);
 };
 
 var staticRenderFns = [];
@@ -49432,75 +49349,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Posts.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Posts.vue ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Posts_vue_vue_type_template_id_4ac4d2f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Posts.vue?vue&type=template&id=4ac4d2f8& */ "./resources/js/components/Posts.vue?vue&type=template&id=4ac4d2f8&");
-/* harmony import */ var _Posts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Posts.vue?vue&type=script&lang=js& */ "./resources/js/components/Posts.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Posts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Posts_vue_vue_type_template_id_4ac4d2f8___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Posts_vue_vue_type_template_id_4ac4d2f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Posts.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Posts.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/Posts.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Posts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Posts.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Posts.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Posts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Posts.vue?vue&type=template&id=4ac4d2f8&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/Posts.vue?vue&type=template&id=4ac4d2f8& ***!
-  \**************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_Posts_vue_vue_type_template_id_4ac4d2f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./Posts.vue?vue&type=template&id=4ac4d2f8& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Posts.vue?vue&type=template&id=4ac4d2f8&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_Posts_vue_vue_type_template_id_4ac4d2f8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_Posts_vue_vue_type_template_id_4ac4d2f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/front.js":
 /*!*******************************!*\
   !*** ./resources/js/front.js ***!
@@ -49511,6 +49359,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/App.vue */ "./resources/js/views/App.vue");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49532,6 +49381,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49542,8 +49392,20 @@ var app = new Vue({
   el: '#root',
   render: function render(h) {
     return h(_views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  }
+  },
+  router: _router__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
+
+/***/ }),
+
+/***/ "./resources/js/router.js":
+/*!********************************!*\
+  !*** ./resources/js/router.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\resources\\js\\router.js: Identifier 'Home' has already been declared. (8:7)\n\n\u001b[0m \u001b[90m  6 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  7 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mHome\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"./pages/Home.vue\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mHome\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"./pages/About.vue\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 |\u001b[39m \u001b[36mconst\u001b[39m router \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mVueRouter\u001b[39m({\u001b[0m\n    at instantiate (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:359:12)\n    at Parser.raise (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:3339:19)\n    at ScopeHandler.checkRedeclarationInScope (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:3523:19)\n    at ScopeHandler.declareName (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:3489:12)\n    at Parser.declareNameFromIdentifier (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:12152:16)\n    at Parser.checkIdentifier (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:12147:12)\n    at Parser.checkLVal (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:12073:12)\n    at Parser.finishImportSpecifier (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:16346:10)\n    at Parser.parseImportSpecifierLocal (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:16342:31)\n    at Parser.maybeParseDefaultImportSpecifier (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:16459:12)\n    at Parser.parseImport (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:16306:31)\n    at Parser.parseStatementContent (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14753:27)\n    at Parser.parseStatement (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14643:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:15286:25)\n    at Parser.parseBlockBody (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:15277:10)\n    at Parser.parseProgram (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14561:10)\n    at Parser.parseTopLevel (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14548:25)\n    at Parser.parse (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:16556:10)\n    at parse (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:16608:38)\n    at parser (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\transform.js:25:41)\n    at transform.next (<anonymous>)\n    at step (C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\gensync\\index.js:261:32)\n    at C:\\Users\\39329\\Boolean Laravel\\laravel-boolpress\\node_modules\\gensync\\index.js:273:13");
 
 /***/ }),
 
