@@ -25,4 +25,21 @@ class PostController extends Controller
             'results' => $posts
         ]);
     }
+
+    public function show($slug) {
+        $post = Post::where('slug', '=', $slug)->with(['category', 'tags'])->first();
+        
+        if ($post) {
+            return response()->json([
+                'success' => true,
+                'results' => $post
+            ]);
+        }
+          return response()->json ([
+            'success' => false,
+            'error' => 'nessun post trovato'
+          ]);
+    }
+
+    
 }
